@@ -1,0 +1,14 @@
+input .ng-touched.ng-invalid{
+    border-color:#cf2738 
+}
+
+input ng-valid{
+    border-color:rgb(14, 226, 14) 
+}
+
+.green-icon{
+    color:rgb(14, 226, 14);
+}
+.red-icon{
+    color: #cf2738;
+}
