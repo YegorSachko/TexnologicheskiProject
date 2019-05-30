@@ -8,8 +8,22 @@ import{HttpClient}from "@angular/common/http"
 export class UserService {
  formData:User;
  readonly rootURL='http://localhost:54029/api';
-  constructor(private http:HttpClient) { }
-  PostUser(formData:User){
-    return this.http.post(this.rootURL+'/User',formData)
+ list:User[];
+ 
+constructor(private http:HttpClient) { }
+  
+PostUser(){
+    return this.http.post(this.rootURL+'/User',this.formData)
   }
+
+putUser(){
+    return this.http.put(this.rootURL+'/User/'+this.formData.UserId,this.formData)
+  }
+
+deleteUser(id){
+    return this.http.delete(this.rootURL+'/User/'+id);
+  }
+
+  refreshList(){this.http.get(this.rootURL+'/User')
+  .toPromise().then(res=>this.list = res as User[])}
 }

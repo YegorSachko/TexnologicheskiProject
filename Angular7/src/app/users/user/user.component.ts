@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class UserComponent implements OnInit {
   
-  constructor(private service:UserService) { }
+  constructor(private service:UserService,private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -26,6 +27,23 @@ export class UserComponent implements OnInit {
     }
   }
   onSubmit(form:NgForm){
-    this.service.PostUser(form.value).subscribe(res=>{this.resetForm(form);},err =>{console.log(err)})
+    if(this.service.formData.UserId==0)
+    this.insertRecord(form);
+    else
+    this.updateRecord(form);
+  }
+  insertRecord(form:NgForm){
+    this.service.PostUser().subscribe
+    (res=>{this.resetForm(form);
+    this.toastr.success('Submitted successfully','User Register');
+    this.service.refreshList();},
+    err =>{console.log(err)})
+  }
+  updateRecord(form:NgForm){
+    this.service.putUser().subscribe
+    (res=>{this.resetForm(form);
+    this.toastr.info('Submitted successfully','User Rewrite');
+    this.service.refreshList();},
+    err =>{console.log(err)})
   }
 }

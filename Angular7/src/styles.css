@@ -12,3 +12,10 @@ input ng-valid{
 .red-icon{
     color: #cf2738;
 }
+#toast-container>div{
+    opacity: 1;
+}
+
+table tr:hover{
+    cursor: pointer;
+}

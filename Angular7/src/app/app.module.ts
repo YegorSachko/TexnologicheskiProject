@@ -6,8 +6,10 @@ import { UserComponent } from './users/user/user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UsersComponent } from './users/users.component';
 import { UserService } from './shared/user.service';
-import{HttpClientModule}from "@angular/common/http"
-
+import{HttpClientModule}from "@angular/common/http";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import{HttpClientModule}from "@angular/common/http"
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
