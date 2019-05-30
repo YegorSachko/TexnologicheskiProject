@@ -16,10 +16,18 @@ namespace Auction.Models
         public string Login { get; set; }
         [Required]
         [Column(TypeName = "varchar(5)")]
-        public string born { get; set; }
+        public string password { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
-        public string Country { get; set; }
-
+        public string address { get; set; }
+        [Required]
+        [Column(TypeName = "varchar(20)")]
+        public string name { get; set; }
+        [Required]
+        [Column(TypeName = "varchar(20)")]
+        public string fam { get; set; }
+        [Required]
+        [Column(TypeName = "varchar(20)")]
+        public string otc { get; set; }
     }
 }
