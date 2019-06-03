@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auction.component.css']
 })
 export class AuctionComponent implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit() {

@@ -87,3 +87,33 @@ table tr:hover{
   .collink{
     color: black;
   }
+
+  .col-1-4 {
+    width: 25%;
+    float: left;
+  }
+
+  .container:after, .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .row {
+    margin-bottom: 15px;
+    border-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: black;
+    border-top-color: black;
+    border-left-color: white;
+    border-right-color: white;
+  }
+  .bot{
+   position: absolute bottom;
+
+  }
+  .cost{
+    color:red;
+  }
+  .own{
+    color: skyblue;
+  }
