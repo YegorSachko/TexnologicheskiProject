@@ -84,3 +84,6 @@ table tr:hover{
     align-content: center;
     text-align: center;
   }
+  .collink{
+    color: black;
+  }
