@@ -9,20 +9,38 @@ import { UserService } from './shared/user.service';
 import{HttpClientModule}from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
- 
+import { NavMenuComponent } from './menu/nav-menu/nav-menu.component';
+import { RatingComponent } from './menu/rating/rating.component';
+import { InfoComponent } from './menu/info/info.component';
+import { AuctionComponent } from './menu/auction/auction.component';
+import { RouterModule } from '@angular/router';
+import { SignInComponent } from './menu/sign-in/sign-in.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserListComponent,
-    UsersComponent
+    UsersComponent,
+    NavMenuComponent,
+    RatingComponent,
+    InfoComponent,
+    AuctionComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    RouterModule.forRoot([
+      {path:'rating',component:RatingComponent},
+      {path:'info',component:InfoComponent},
+      {path:'',component:AuctionComponent},
+      {path:'sign-in',component:SignInComponent},
+     
+    ])
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
