@@ -11,56 +11,57 @@ namespace Auction.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class LotsController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public UserController(DatabaseContext context)
+        public LotsController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/User
+        // GET: api/Lots
         [HttpGet]
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<Lot> GetLot()
         {
-            return _context.Users;
+            return _context.Lots;
         }
 
-        // GET: api/User/5
+        // GET: api/Lots/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        public async Task<IActionResult> GetLot([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var lot = await _context.Lots.FindAsync(id);
 
-            if (user == null)
+            if (lot == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+
+            return Ok(lot);
         }
 
-        // PUT: api/User/5
+        // PUT: api/Lots/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
+        public async Task<IActionResult> PutLot([FromRoute] int id, [FromBody] Lot lot)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.UserId)
+            if (id != lot.LotID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(lot).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +69,7 @@ namespace Auction.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!LotExists(id))
                 {
                     return NotFound();
                 }
@@ -81,45 +82,45 @@ namespace Auction.Controllers
             return NoContent();
         }
 
-        // POST: api/User
+        // POST: api/Lots
         [HttpPost]
-        public async Task<IActionResult> PostUser([FromBody] User user)
+        public async Task<IActionResult> PostLot([FromBody] Lot lot)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
+            _context.Lots.Add(lot);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return CreatedAtAction("GetLot", new { id = lot.LotID }, lot);
         }
 
-        // DELETE: api/User/5
+        // DELETE: api/Lots/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        public async Task<IActionResult> DeleteLot([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var lot = await _context.Lots.FindAsync(id);
+            if (lot == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Lots.Remove(lot);
             await _context.SaveChangesAsync();
 
-            return Ok(user);
+            return Ok(lot);
         }
 
-        private bool UserExists(int id)
+        private bool LotExists(int id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.Lot.Any(e => e.LotID == id);
         }
     }
 }

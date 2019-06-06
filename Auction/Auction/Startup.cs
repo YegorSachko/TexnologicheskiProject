@@ -35,7 +35,7 @@ namespace Auction
                     if (resolver != null)
                         (resolver as DefaultContractResolver).NamingStrategy = null;
                 });
-            services.AddDbContext<UserContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<DatabaseContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddCors();
         }
 

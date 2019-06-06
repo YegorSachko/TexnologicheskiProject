@@ -1,0 +1,26 @@
+<div class="center">
+  <div class="container">
+      <div class="row">
+        <div class="col-1-4 lotitem colom" *ngFor="let item of lotService.list">
+
+            <img  class="responsive" src="{{item.LotUrl}}">
+
+            <span class="label label-primary"><b class="labe">{{item.Lotname}}</b></span><br>
+            
+           <button class="btn btn-success " (click)=OnClick()><h6 class="cost">
+              {{item.Lotprice}} $<br>  
+             <h4>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-paypal"></i>
+             </h4>
+              
+            </h6></button>
+
+            <br><b class="">Owner:</b><br>
+            <button class="btn btn-default"><i class="fas fa-user-tag"></i><b class="own">{{item.LotOwner}}</b></button>
+            
+        </div>
+    </div>
+  </div>
+</div>

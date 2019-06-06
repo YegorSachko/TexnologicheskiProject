@@ -15,6 +15,8 @@ import { InfoComponent } from './menu/info/info.component';
 import { AuctionComponent } from './menu/auction/auction.component';
 import { RouterModule } from '@angular/router';
 import { SignInComponent } from './menu/sign-in/sign-in.component';
+import { BotMenuComponent } from './menu/bot-menu/bot-menu.component';
+import { LotsComponent } from './lot/lots/lots.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { SignInComponent } from './menu/sign-in/sign-in.component';
     RatingComponent,
     InfoComponent,
     AuctionComponent,
-    SignInComponent
+    SignInComponent,
+    BotMenuComponent,
+    LotsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { SignInComponent } from './menu/sign-in/sign-in.component';
       {path:'',component:AuctionComponent},
       {path:'sign-in',component:SignInComponent},
      
-    ])
+    ]),
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

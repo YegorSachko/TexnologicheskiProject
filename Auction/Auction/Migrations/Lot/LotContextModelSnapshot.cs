@@ -3,16 +3,14 @@ using Auction.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Auction.Migrations
+namespace Auction.Migrations.Lot
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20190530114219_Initial")]
-    partial class Initial
+    partial class LotContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,39 +18,31 @@ namespace Auction.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Auction.Models.User", b =>
+            modelBuilder.Entity("Auction.Models.Lot", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("LotID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("address")
+                    b.Property<string>("LotOwner")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("fam")
+                    b.Property<string>("LotUrl")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("nvarchar(2000)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Lotname")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("otc")
+                    b.Property<string>("Lotprice")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(10)");
 
-                    b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
+                    b.HasKey("LotID");
 
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
+                    b.ToTable("Lots");
                 });
 #pragma warning restore 612, 618
         }
