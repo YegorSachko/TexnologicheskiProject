@@ -1,19 +1,19 @@
 <table class="table table-hover">
-    <tr>
-        <td>Nickname</td>
-         <td>Name</td>
-         <td>Surname</td>
-         <td>Patronymic</td>
-         <td>Location</td>
+    <tr style="background-color:burlywood">
+        <td><b>Nickname</b></td>
+         <td><b>Name</b></td>
+         <td><b>Surname</b></td>
+         <td><b>Patronymic</b></td>
+         <td><b>Location</b></td>
        </tr>
   <tr *ngFor="let pd of service.list">
-    <td (click)="populateForm(pd)">{{pd.Login}}</td> 
-    <td (click)="populateForm(pd)">{{pd.name}} </td>
-    <td (click)="populateForm(pd)">{{pd.fam}} </td>
-    <td (click)="populateForm(pd)">{{pd.otc}} </td>
-    <td (click)="populateForm(pd)">{{pd.address}}</td>
+    <td style="background-color: darkgrey" (click)="populateForm(pd)"><i class="fas fa-user-tie"></i> {{pd.Login}}</td> 
+    <td style="background-color: rgb(199, 196, 196)" (click)="populateForm(pd)">{{pd.Name}} </td>
+    <td style="background-color: darkgrey" (click)="populateForm(pd)">{{pd.Fam}} </td>
+    <td style="background-color: rgb(199, 196, 196)" (click)="populateForm(pd)">{{pd.Otc}} </td>
+    <td style="background-color: darkgrey" (click)="populateForm(pd)"><i class="fas fa-globe-europe"></i><b> {{pd.Address}}</b></td>
     <td>
-      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.UserId)"></i>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
     </td>
   </tr>
 </table>

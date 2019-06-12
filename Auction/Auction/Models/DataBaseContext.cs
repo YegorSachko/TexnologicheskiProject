@@ -15,7 +15,8 @@ namespace Auction.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Lot> Lots { get; set; }
-        public IEnumerable<Lot> Lot { get; internal set; }
+        public DbSet<Bit> Bits { get; set; }
+        
 
     }
 }

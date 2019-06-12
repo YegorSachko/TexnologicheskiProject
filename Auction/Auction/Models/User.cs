@@ -10,24 +10,27 @@ namespace Auction.Models
     public class User
     {
         [Key]
-        public int UserId { get; set; }
+        public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(100)")]
         public string Login { get; set; }
         [Required]
         [Column(TypeName = "varchar(5)")]
-        public string password { get; set; }
+        public string Password { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
-        public string address { get; set; }
+        public string Address { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
-        public string fam { get; set; }
+        public string Fam { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
-        public string otc { get; set; }
+        public string Otc { get; set; }
+
+        public ICollection<Bit> Bits{get;set;}
     }
-}
+    }
+

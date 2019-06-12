@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-rating',
-  templateUrl: './rating.component.html',
+  selector: 'app-input',
+  templateUrl: './input.component.html',
   styleUrls: [],
 })
-export class RatingComponent implements OnInit {
+export class InputComponent implements OnInit {
 
   constructor() { }
 

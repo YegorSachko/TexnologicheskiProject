@@ -1,6 +1,9 @@
 export class User {
-    UserId:number;
+    Id:number;
     Login:string;
-    born:string;
-    Country:string;
+    Password:string;
+    Address:string;
+    Name:string;
+    Fam:string;
+    Otc:string;
 }

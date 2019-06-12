@@ -17,6 +17,11 @@ import { RouterModule } from '@angular/router';
 import { SignInComponent } from './menu/sign-in/sign-in.component';
 import { BotMenuComponent } from './menu/bot-menu/bot-menu.component';
 import { LotsComponent } from './lot/lots/lots.component';
+import { InputComponent } from './menu/input/input.component';
+import { AddlotComponent } from './lot/addlot/addlot.component';
+import { LotsMenuComponent } from './lot/lots-menu/lots-menu.component';
+import { LotService } from './shared/lots.service';
+import { AddlotsService } from './shared/addlots.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,9 @@ import { LotsComponent } from './lot/lots/lots.component';
     SignInComponent,
     BotMenuComponent,
     LotsComponent,
+    InputComponent,
+    AddlotComponent,
+    LotsMenuComponent,
    
   ],
   imports: [
@@ -44,10 +52,12 @@ import { LotsComponent } from './lot/lots/lots.component';
       {path:'info',component:InfoComponent},
       {path:'',component:AuctionComponent},
       {path:'sign-in',component:SignInComponent},
+      {path:'add-lot',component:AddlotComponent},
+      {path:'lot-menu',component:LotsMenuComponent},
      
     ]),
   ],
-  providers: [UserService],
+  providers: [UserService,LotService,AddlotsService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

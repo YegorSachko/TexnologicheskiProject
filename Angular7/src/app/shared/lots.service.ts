@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient}from "@angular/common/http"
 import { Lot } from './lots.model';
+import { Bit } from './bit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class LotService {
   }
 
   putLot(){
-    return this.http.put(this.rootURL+'/Lots/'+this.formData.LotId,this.formData)
+    return this.http.put(this.rootURL+'/Lots/'+this.formData.Id,this.formData)
   }
 
   deleteLot(id){
@@ -27,5 +28,20 @@ export class LotService {
   refreshList(){
     this.http.get(this.rootURL+'/Lots')
     .toPromise().then(res=>this.list = res as Lot[])
+  }
+  SetBit(lotId:number, lotprice:number){
+
+    let bitModel = {
+      userId: 1,
+      lotId: lotId,
+      price : lotprice
+    }
+
+    this.http.post<Bit>(`${this.rootURL}/Bits/`,bitModel)
+      .subscribe( 
+        b => {this.list.find(i => i.Id == b.LotId).Lotprice = b.Price;},
+        errro =>{console.log(errro)}
+        )
+    return true;
   }
 }

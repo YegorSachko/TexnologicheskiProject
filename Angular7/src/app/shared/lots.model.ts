@@ -1,7 +1,7 @@
 export class Lot{
-    LotId:number;
+    Id:number;
     Lotname:string;
     LotUrl:string;
-    Lotprice:string;
+    Lotprice:number;
     LotOwner:string;
 }

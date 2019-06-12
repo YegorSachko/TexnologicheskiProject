@@ -21,10 +21,10 @@ export class LotsComponent implements OnInit {
     if(form!=null)
       form.resetForm();
     this.lotService.formData = {
-      LotId:0,
+      Id:0,
       Lotname:'',
       LotUrl:'',
-      Lotprice:'',
+      Lotprice:0,
       LotOwner:''
     }
   }
@@ -32,7 +32,7 @@ Getalllots(){
   this.lotService.refreshList();
 }
   onSubmit(form:NgForm){
-    if(this.lotService.formData.LotId==0)
+    if(this.lotService.formData.Id==0)
     this.insertRecord(form);
     else
     this.updateRecord(form);
@@ -53,12 +53,12 @@ Getalllots(){
     this.lotService.refreshList();},
     err =>{console.log(err)})
   }
-  OnClick(form:NgForm){
-      this.lotService.putLot().subscribe
-      (res=>{;this.resetForm(form);
-      this.toastr.info('Bit successfully','Lot Rewrite');
-      this.lotService.refreshList();},
-      err =>{console.log(err)})
+
+  SetBit(lotId:number,lotprice:number){
+    this.lotService.SetBit(lotId,lotprice+10000);
+    console.log("lotId",lotId);
+    this.toastr.info('Submit successfully','Lot Rewrite');
     }
   }
+
 

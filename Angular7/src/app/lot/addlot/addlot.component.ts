@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
-import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AddlotsService } from 'src/app/shared/addlots.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styles: []
+  selector: 'app-addlot',
+  templateUrl: './addlot.component.html',
+  styleUrls: [],
 })
-export class UserComponent implements OnInit {
-  
-  constructor(private service:UserService,private toastr:ToastrService) { }
+export class AddlotComponent implements OnInit {
+  constructor(private service:AddlotsService,private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -21,12 +20,11 @@ export class UserComponent implements OnInit {
     form.resetForm();
     this.service.formData = {
       Id:0,
-      Login:"",
-      Password:"",
-      Address:"",
-      Name:"",
-      Fam:"",
-      Otc:""
+      Lotname:"",
+      LotUrl:"",
+      Lotprice:0,
+      LotOwner:"",
+      
     }
   }
   onSubmit(form:NgForm){
@@ -38,14 +36,14 @@ export class UserComponent implements OnInit {
   insertRecord(form:NgForm){
     this.service.PostUser().subscribe
     (res=>{this.resetForm(form);
-    this.toastr.success('Submitted successfully','User Register');
+    this.toastr.success('Submitted successfully','Lot Register');
     this.service.refreshList();},
     err =>{console.log(err)})
   }
   updateRecord(form:NgForm){
     this.service.putUser().subscribe
     (res=>{this.resetForm(form);
-    this.toastr.info('Submitted successfully','User Rewrite');
+    this.toastr.info('Submitted successfully','Lot Rewrite');
     this.service.refreshList();},
     err =>{console.log(err)})
   }

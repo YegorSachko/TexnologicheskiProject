@@ -11,57 +11,56 @@ namespace Auction.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LotsController : ControllerBase
+    public class BitsController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public LotsController(DatabaseContext context)
+        public BitsController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/Lots
+        // GET: api/Bits
         [HttpGet]
-        public IEnumerable<Lot> GetLot()
+        public IEnumerable<Bit> GetBits()
         {
-            return _context.Lots;
+            return _context.Bits;
         }
 
-        // GET: api/Lots/5
+        // GET: api/Bits/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetLot([FromRoute] int id)
+        public async Task<IActionResult> GetBit([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var lot = await _context.Lots.FindAsync(id);
+            var bit = await _context.Bits.FindAsync(id);
 
-            if (lot == null)
+            if (bit == null)
             {
                 return NotFound();
             }
 
-
-            return Ok(lot);
+            return Ok(bit);
         }
 
-        // PUT: api/Lots/5
+        // PUT: api/Bits/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLot([FromRoute] int id, [FromBody] Lot lot)
+        public async Task<IActionResult> PutBit([FromRoute] int id, [FromBody] Bit bit)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != lot.Id)
+            if (id != bit.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(lot).State = EntityState.Modified;
+            _context.Entry(bit).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +68,7 @@ namespace Auction.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LotExists(id))
+                if (!BitExists(id))
                 {
                     return NotFound();
                 }
@@ -82,58 +81,59 @@ namespace Auction.Controllers
             return NoContent();
         }
 
-        // POST: api/Lots
+        // POST: api/Bits
         [HttpPost]
-        public async Task<IActionResult> PostLot([FromBody] Lot lot)
+        public async Task<IActionResult> PostBit([FromBody] Bit bit)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Lots.Add(lot);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetLot", new { id = lot.Id }, lot);
-        }
-        [HttpPost("{id}")]
-        public async Task<IActionResult> SetBit([FromBody] Lot lot)
-        {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                _context.Bits.Add(bit);
+                var lot = await _context.Lots.FindAsync(bit.LotId);
+                lot.Lotprice = bit.Price;
+                _context.Entry(lot).State = EntityState.Modified;
+
+
+                await _context.SaveChangesAsync();
+            return Ok(bit);
             }
-
-            _context.Lots.Add(lot);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetLot", new { id = lot.Id }, lot);
+            catch (Exception ex)
+            {
+                var test = ex;
+            }
+            return Ok(bit);
+            //return CreatedAtAction("GetBit", new { id = bit.Id }, bit);
         }
 
-        // DELETE: api/Lots/5
+
+        // DELETE: api/Bits/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLot([FromRoute] int id)
+        public async Task<IActionResult> DeleteBit([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var lot = await _context.Lots.FindAsync(id);
-            if (lot == null)
+            var bit = await _context.Bits.FindAsync(id);
+            if (bit == null)
             {
                 return NotFound();
             }
 
-            _context.Lots.Remove(lot);
+            _context.Bits.Remove(bit);
             await _context.SaveChangesAsync();
 
-            return Ok(lot);
+            return Ok(bit);
         }
 
-        private bool LotExists(int id)
+        private bool BitExists(int id)
         {
-            return _context.Lots.Any(e => e.Id == id);
+            return _context.Bits.Any(e => e.Id == id);
         }
     }
 }

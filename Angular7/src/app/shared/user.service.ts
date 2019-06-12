@@ -17,7 +17,7 @@ PostUser(){
   }
 
 putUser(){
-    return this.http.put(this.rootURL+'/User/'+this.formData.UserId,this.formData)
+    return this.http.put(this.rootURL+'/User/'+this.formData.Id,this.formData)
   }
 
 deleteUser(id){
