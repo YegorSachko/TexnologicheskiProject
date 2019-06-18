@@ -170,3 +170,21 @@ table tr:hover{
     border-bottom-color: black;
     border-top-color: black;
   }
+  .wrapper{
+    align-content: center;
+    text-align: center;
+    background-color:black
+  }
+  .wrapped-div{
+    background-color:rgba(199, 194, 194, 0.719)
+  }
+  .tab-header{
+    background-color:gold;
+    border-style: solid dotted ;
+    border-color:  wheat black;
+    border-bottom-width: 2px;
+  }
+.form-control{
+  background-color: wheat;
+  color:black;
+}

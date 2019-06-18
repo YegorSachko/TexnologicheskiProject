@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [],
 })
 export class InputComponent implements OnInit {
-
-  constructor() { }
+ 
 
   ngOnInit() {
   }
-
+ 
 }

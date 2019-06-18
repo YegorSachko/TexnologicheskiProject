@@ -22,6 +22,8 @@ import { AddlotComponent } from './lot/addlot/addlot.component';
 import { LotsMenuComponent } from './lot/lots-menu/lots-menu.component';
 import { LotService } from './shared/lots.service';
 import { AddlotsService } from './shared/addlots.service';
+import { LoginComponent } from './menu/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { AddlotsService } from './shared/addlots.service';
     InputComponent,
     AddlotComponent,
     LotsMenuComponent,
+    LoginComponent,
+    
    
   ],
   imports: [
@@ -51,10 +55,15 @@ import { AddlotsService } from './shared/addlots.service';
       {path:'rating',component:RatingComponent},
       {path:'info',component:InfoComponent},
       {path:'',component:AuctionComponent},
-      {path:'sign-in',component:SignInComponent},
       {path:'add-lot',component:AddlotComponent},
       {path:'lot-menu',component:LotsMenuComponent},
-     
+      {
+        path:'sign-in',component:SignInComponent,
+        children:[
+        {path:'login',component:LoginComponent},
+        {path:'registration',component:UserComponent}
+                  ]
+      }
     ]),
   ],
   providers: [UserService,LotService,AddlotsService,],
