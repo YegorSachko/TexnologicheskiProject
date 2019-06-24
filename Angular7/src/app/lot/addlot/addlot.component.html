@@ -17,7 +17,7 @@
           <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-                <i class="fas fa-lock" [class.green-icon]="LotUrl.valid" [class.red-icon]="LotUrl.inalid && LotUrl.touched"></i>
+              <i class="fas fa-atlas" [class.green-icon]="LotUrl.valid" [class.red-icon]="LotUrl.inalid && LotUrl.touched"></i>
             </div>
           </div>
           <input name="LotUrl" #LotUrl="ngModel" [(ngModel)]="service.formData.LotUrl" class="form-control" placeholder="Add URL from Internet on your image" required maxlength="4000" minlength="5">
@@ -28,7 +28,7 @@
             <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text bg-white">
-                  <i class="fas fa-map-marked-alt" [class.green-icon]="Lotprice.valid" [class.red-icon]="Lotprice.inalid && Lotprice.touched"></i>
+                <i class="fas fa-dollar-sign" [class.green-icon]="Lotprice.valid" [class.red-icon]="Lotprice.inalid && Lotprice.touched"></i>
               </div>
             </div>
             <input name="Lotprice" #Lotprice="ngModel" [(ngModel)]="service.formData.Lotprice" class="form-control" placeholder="Price $" required maxlength="30" minlength="3">
@@ -42,7 +42,7 @@
                   <i class="fas fa-id-card" [class.green-icon]="LotOwner.valid" [class.red-icon]="LotOwner.inalid && LotOwner.touched"></i>
               </div>
             </div>
-            <input name="LotOwner" #LotOwner="ngModel" [(ngModel)]="service.formData.LotOwner" class="form-control" placeholder="Your Login" required maxlength="10" minlength="2">
+            <input name="LotOwner" #LotOwner="ngModel" [(ngModel)]="service.formData.LotOwner" class="form-control" placeholder="Your Login" required maxlength="20" minlength="2">
           </div>
         </div>
     
