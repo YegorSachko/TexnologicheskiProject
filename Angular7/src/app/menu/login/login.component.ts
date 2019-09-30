@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 formModel={
-  Login1:'',
-  Password1:'',
+  UserName:'',
+  Password:'',
 }
-  constructor() { }
+  constructor(private toastr:ToastrService) { }
 
   ngOnInit() {
+  }
+
+  CheckComein(){
+    this.toastr.warning('Logged in','You come in in your account');
   }
 
 }

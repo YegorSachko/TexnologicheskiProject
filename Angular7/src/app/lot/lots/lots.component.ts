@@ -28,6 +28,7 @@ export class LotsComponent implements OnInit {
       LotOwner:''
     }
   }
+
 Getalllots(){
   this.lotService.refreshList();
 }
@@ -41,7 +42,7 @@ Getalllots(){
   insertRecord(form:NgForm){
     this.lotService.PostLot().subscribe
     (res=>{this.resetForm(form);
-    this.toastr.success('Submit successfully','Lot created');
+    this.toastr.success('Your item has been created','Lot created');
     this.lotService.refreshList();},
     err =>{console.log(err)})
   }
@@ -57,8 +58,6 @@ Getalllots(){
   SetBit(lotId:number,lotprice:number){
     this.lotService.SetBit(lotId,lotprice+10000);
     console.log("lotId",lotId);
-    this.toastr.info('Submit successfully','Lot Rewrite');
-    }
+    this.toastr.warning('You added 10000$ to cost','Lot Rewrite')
   }
-
-
+}

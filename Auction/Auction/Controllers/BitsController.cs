@@ -84,7 +84,7 @@ namespace Auction.Controllers
         // POST: api/Bits
         [HttpPost]
         public async Task<IActionResult> PostBit([FromBody] Bit bit)
-        {
+            {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -97,7 +97,7 @@ namespace Auction.Controllers
                 lot.Lotprice = bit.Price;
                 _context.Entry(lot).State = EntityState.Modified;
 
-
+                _context.Update(lot);
                 await _context.SaveChangesAsync();
             return Ok(bit);
             }

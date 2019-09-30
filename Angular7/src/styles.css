@@ -1,16 +1,16 @@
 input .ng-touched.ng-invalid{
-    border-color:#cf2738 
+    border-color:#911E42 
 }
 
 input ng-valid{
-    border-color:rgb(14, 226, 14) 
+    border-color:rgb(18, 243, 37) 
 }
 
 .green-icon{
-    color:rgb(14, 226, 14);
+    color:rgb(29, 226, 111);
 }
 .red-icon{
-    color: #cf2738;
+    color: #911E42;
 }
 #toast-container>div{
     opacity: 1;
@@ -19,21 +19,24 @@ input ng-valid{
 table tr:hover{
     cursor: pointer;
 }
-
+.h4m{
+  color:#911E42;
+}
 .format {
-    color: gold;
+    color: #FDEAA8;
   
   }
   .bs-callout {
     padding: 20px;
     margin: 20px 0;
-    border: 1px solid #eee;
+    border: 1px solid #F5F5DC;
     border-left-width: 5px;
     border-radius: 3px;
   }
   .bs-callout h4 {
     margin-top: 0;
     margin-bottom: 5px;
+
   }
   .bs-callout p:last-child {
     margin-bottom: 0;
@@ -45,37 +48,37 @@ table tr:hover{
     margin-top: -5px;
   }
   .bs-callout-default {
-    border-left-color: #777;
+    border-left-color: #808080;
   }
   .bs-callout-default h4 {
-    color: #777;
+    color: #808080;
   }
   .bs-callout-primary {
-    border-left-color: #428bca;
+    border-left-color: rgb(0, 162, 255);
   }
   .bs-callout-primary h4 {
     color: #428bca;
   }
   .bs-callout-success {
-    border-left-color: #5cb85c;
+    border-left-color: rgb(0, 255, 34);
   }
   .bs-callout-success h4 {
-    color: #5cb85c;
+    color: rgb(0, 255, 85);
   }
   .bs-callout-danger {
-    border-left-color: #d9534f;
+    border-left-color: #911E42;
   }
   .bs-callout-danger h4 {
-    color: #d9534f;
+    color: #911E42;
   }
   .bs-callout-warning {
-    border-left-color: #f0ad4e;
+    border-left-color: #FFA000;
   }
   .bs-callout-warning h4 {
-    color: #f0ad4e;
+    color: #FFA000;
   }
   .bs-callout-info {
-    border-left-color: #5bc0de;
+    border-left-color: #5bc0de; 
   }
   .bs-callout-info h4 {
     color: #5bc0de;
@@ -104,18 +107,18 @@ table tr:hover{
     border-bottom-width: 3px;
     border-bottom-color: black;
     border-top-color: black;
-    border-left-color: orange;
-    border-right-color: orange;
+    border-left-color: #808080;
+    border-right-color: #808080;
   }
   .bot{
    position: absolute bottom;
 
   }
   .cost{
-    color:black;
+    color:black; /* cost and img*/
   }
   .own{
-    color: red;
+    color: #007FFF; /* owner lot*/
   }
 
   .rows {
@@ -126,32 +129,29 @@ table tr:hover{
     text-align: right;
   }
   .c{
-    color: #5cb85c;
+    color: #007FFF; /* i don't no*/
   }
   .conte{
     align-content: center;
     text-align: center;
   }
   .r{
-    background-color:orange;
-  }
-  .r1{
-    background-color:red;
+    background-color:#911E42; /* top and bottom menu*/
   }
   .lotitem {
     margin: 17px 0;
     padding: 5px;
-    background-color: white;
+    background-color: #911E42; /* i don't*/
   }
   .responsive {
+   width: 100%;
+   height: 120px;
+    transition: 3s;
+  }
+  .responsive:hover {
     width: 100%;
     height: auto;
-  }
-  .back{
-    background-color: orange;
-  }
-  .back1{
-    background-color:blue;
+    transform: scale(3);
   }
 
   .labe{
@@ -176,15 +176,22 @@ table tr:hover{
     background-color:black
   }
   .wrapped-div{
-    background-color:rgba(199, 194, 194, 0.719)
+    background-color:#808080
   }
   .tab-header{
-    background-color:gold;
+    background-color:#FCDD76;
     border-style: solid dotted ;
-    border-color:  wheat black;
+    border-color:  #F5F5DC black;
     border-bottom-width: 2px;
   }
 .form-control{
-  background-color: wheat;
+  background-color: #F5F5DC;
   color:black;
 }
+
+.scale {
+  transition: 2s; /* Время эффекта */
+ }
+ .scale:hover {
+  transform: scale(1.5); /* Увеличиваем масштаб */
+ }

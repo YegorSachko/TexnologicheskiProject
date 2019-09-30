@@ -22,7 +22,7 @@ namespace Auction.Models
         [Required]
         [Column(TypeName = "varchar(20)")]
         public string LotOwner { get; set; }
-        public ICollection<Bit> Bits { get; set; }
+        
     }
 
 }

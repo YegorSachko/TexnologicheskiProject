@@ -14,25 +14,27 @@
   </div> 
 </div><br>
 
+<div>
+  <h4>One tap on <button class="btn btn-warning">button</button> you add <b style="color: #FFA000">10000$</b> to cost</h4>
+</div>
 
 <div class="center">
-  <div class="container">
+  <div style="background-color: #911E42" class="container">
       <div class="row">
-        <div style="background-color:tan" class="col-1-4 lotitem colom" *ngFor="let item of lotService.list">
-
-          <table style="width:100%">
-            <tr class="colom1">
+        <div style="background-color:#F5F5DC" class="col-1-4 lotitem colom" *ngFor="let item of lotService.list">
+          <div style="width:100%">
+            <div class="colom1">
                 <img  class="responsive" src="{{item.LotUrl}}" >
-            </tr>
-            <tr style="background-color: navajowhite" class="colom1">
+            </div>
+            <div style="background-color: #911E42" class="colom1">
                 <span class="label label-primary"><b class="labe">{{item.Lotname}}</b></span><br>
-            </tr>  
-            <tr>
+            </div>  
+            <div>
                 <b class="">Owner:</b>
                 <button  class="btn btn-default"><i class="fas fa-user-tag"></i><b class="own">{{item.LotOwner}}</b></button>
-            </tr> 
-            <tr >
-                <button class="btn btn-success " (click)="SetBit(item.Id,item.Lotprice)">
+            </div> 
+            <div >
+                <button class="btn btn-warning" (click)="SetBit(item.Id,item.Lotprice);">
                     <h6 class="cost">
 
                      {{item.Lotprice}} $<br>  
@@ -43,8 +45,8 @@
                      </h4>
                    </h6>
                  </button>
-            </tr>
-          </table>
+            </div>
+          </div>
         </div>
     </div>
   </div>

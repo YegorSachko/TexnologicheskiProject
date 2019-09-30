@@ -32,9 +32,10 @@ export class LotService {
   SetBit(lotId:number, lotprice:number){
 
     let bitModel = {
-      userId: 1,
+      userId: 2,
       lotId: lotId,
-      price : lotprice
+      price : lotprice,
+
     }
 
     this.http.post<Bit>(`${this.rootURL}/Bits/`,bitModel)

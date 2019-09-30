@@ -19,9 +19,6 @@ namespace Auction.Models
         public DateTime Time { get; set; }
         [Required]
         public int Price { get; set; }
-    
-        public Lot Lot { get; set; }
         public User User { get; set; }
-
     }
 }
