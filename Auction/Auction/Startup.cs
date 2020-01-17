@@ -51,7 +51,7 @@ namespace Auction
             }
 
             app.UseCors(options =>
-                options.WithOrigins("http://localhost:4200", "http://localhost:54029", "http://*:80").AllowAnyMethod().AllowAnyHeader());
+                options.WithOrigins("https://yahorauction.azurewebsites.net").AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
           
