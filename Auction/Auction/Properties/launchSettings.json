@@ -3,7 +3,7 @@
     "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:54029",
+      "applicationUrl": "https://yahorauction.azurewebsites.net/",
       "sslPort": 0
     }
   },
