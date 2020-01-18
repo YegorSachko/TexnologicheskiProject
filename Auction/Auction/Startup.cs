@@ -27,7 +27,7 @@ namespace Auction
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(options =>
                 {
@@ -36,7 +36,6 @@ namespace Auction
                         (resolver as DefaultContractResolver).NamingStrategy = null;
                 });
             services.AddDbContext<DatabaseContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
