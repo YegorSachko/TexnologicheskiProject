@@ -51,11 +51,8 @@ namespace Auction
 
             app.UseCors(builder =>
             {
-                builder.WithOrigins("https://angular7-ui.herokuapp.com", "https://yahorauction.azurewebsites.net");
-                builder.AllowAnyHeader();
-                builder.AllowAnyMethod();
-                builder.AllowCredentials();
-                builder.AllowAnyOrigin();
+                builder.WithOrigins("https://angular7-ui.herokuapp.com", "https://yahorauction.azurewebsites.net").AllowAnyHeader()
+                .AllowAnyMethod().AllowCredentials().AllowAnyOrigin();
                 
             });
             app.UseHttpsRedirection();
